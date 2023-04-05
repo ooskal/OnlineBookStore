@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<!--    <form action="insertBook.html" th:action method="post">-->
+<!--        <div>-->
+<!--            <input type="text" id="title" placeholder="책 제목">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <input type="int" id="Price" class="form-control">-->
+<!--        </div>-->
+<!--        <button type="submit">등록</button>-->
+<!--    </form>-->
+
+    <form th:action="@{/books/insertBook}" th:object="${book}" method="post">
+        <input type="text" name="title">
+        <input type="text" name="price">
+        <button type="submit">등록</button>
+    </form>
+
+
+</div><!--container -->
+<!--<h1 th:text="${test[0].title}"></h1>-->
+</body>
+</html>

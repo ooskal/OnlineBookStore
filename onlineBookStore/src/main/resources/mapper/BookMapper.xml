@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.onlineBookStore.domain.book.repository.BookMapper">
+<!--    <select id="selectAll" resultType="com.project.onlineBookStore.domain.books">-->
+<!--        SELECT * FROM my_table-->
+<!--    </select>-->
+    <insert id="insertBook">
+        INSERT INTO BOOK(title,price)
+        VALUES(#{title},#{price})
+    </insert>
+</mapper>
