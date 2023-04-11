@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InsertUser</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/users/insertUser}" th:object="${user}" method="post">
+        <input type="text" name="name">
+        <input type="text" name="id">
+        <input type="text" name="pw">
+        <button type="submit">등록</button>
+    </form>
+</div><!-- container -->
+
+
+</body>
+</html>

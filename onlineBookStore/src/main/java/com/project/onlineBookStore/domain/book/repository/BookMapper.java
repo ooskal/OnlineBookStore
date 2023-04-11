@@ -9,7 +9,10 @@ import java.util.List;
 @Mapper
 @Repository
 public interface BookMapper {
-    List<Book> selectAll();
-    void insertBook(Book book);
+    public List<Book> findById();
+    public void insertBook(Book book);
+    public void deleteBook(Book book);
+
+
 
 }

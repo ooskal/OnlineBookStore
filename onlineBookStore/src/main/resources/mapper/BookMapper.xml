@@ -9,4 +9,15 @@
         INSERT INTO BOOK(title,price)
         VALUES(#{title},#{price})
     </insert>
+
+    <delete id="deleteBook">
+        delete from BOOK
+        where title = #{title}
+    </delete>
+
+    <select id="findById" resultType="com.project.onlineBookStore.domain.book.entity.Book">
+        select title,price
+        from book
+
+    </select>
 </mapper>

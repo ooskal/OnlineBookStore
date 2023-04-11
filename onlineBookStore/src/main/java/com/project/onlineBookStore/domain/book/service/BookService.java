@@ -13,10 +13,21 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class BookService  {
+
     private BookMapper bookMapper;
 
+
     public void addBook(BookDto bookDto) {
-//        bookMapper.insertBook(req.getTitle(), req.getPrice());
         bookMapper.insertBook(new Book(bookDto.getTitle(), bookDto.getPrice()));
     }
+
+    public void deleteBook(BookDto bookDto) {
+        bookMapper.deleteBook(new Book(bookDto.getTitle(), bookDto.getPrice()));
+    }
+
+    public List<Book> findBooks() {
+        return bookMapper.findById();
+    }
+
+
 }
