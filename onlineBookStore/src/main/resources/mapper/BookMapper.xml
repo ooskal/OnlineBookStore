@@ -13,7 +13,7 @@
         where title = #{title}
     </delete>
 
-    <select id="findById" resultType="com.project.onlineBookStore.domain.book.entity.Book">
+    <select id="findByTitle" resultType="com.project.onlineBookStore.domain.book.entity.Book">
         select bookId,title,price
         from book
     </select>

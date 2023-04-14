@@ -30,7 +30,7 @@ public class BookService  {
     }
 
     public List<Book> findBooks() {
-        return bookMapper.findById();
+        return bookMapper.findByTitle();
     }
 
 

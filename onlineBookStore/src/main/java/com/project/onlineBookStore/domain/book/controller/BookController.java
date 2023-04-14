@@ -49,8 +49,8 @@ public class BookController {
     }
 
     @GetMapping("/updateBook")
-    public String getUpdateBook(Model model) {
-        model.addAttribute("book", new Book());
+    public String getUpdateBook(Model model,BookDto bookDto) {
+        model.addAttribute("book", bookDto);
         return "insertBook";
     }
 

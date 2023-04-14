@@ -60,8 +60,8 @@ public class UserController {
     }
 
     @GetMapping("/updateUser")
-    public String getUpdateUser(Model model) {
-        model.addAttribute("user", new UserDto());
+    public String getUpdateUser(Model model,UserDto userDto) {
+        model.addAttribute("user", userDto);
         return "updateUser";
     }
 
@@ -71,5 +71,6 @@ public class UserController {
         userService.updateUser(userDto);
         return "updateUser";
     }
+
 
 }
