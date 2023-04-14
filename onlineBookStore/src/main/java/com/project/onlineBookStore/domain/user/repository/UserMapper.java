@@ -8,11 +8,13 @@ import java.util.List;
 @Mapper
 @Repository
 public interface UserMapper {
-    List<User> findById();
+    List<User> findByAll();
 
     void insertUser(User user);
 
     void deleteUser(User user);
 
     void updateUser(User user);
+
+    User findById(User user);
 }

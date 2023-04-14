@@ -26,7 +26,8 @@ public class BookService  {
     }
 
     public void updateBook(BookDto bookDto) {
-        bookMapper.updateBook(new Book(bookDto.getBookId(), bookDto.getTitle(), bookDto.getPrice()));
+        Book book = new Book(bookDto.getBookId(),bookDto.getTitle(),bookDto.getPrice());
+        bookMapper.updateBook(book);
     }
 
     public List<Book> findBooks() {

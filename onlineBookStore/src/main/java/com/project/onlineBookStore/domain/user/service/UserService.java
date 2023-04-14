@@ -15,18 +15,21 @@ public class UserService {
     private UserMapper userMapper;
 
     public void addUser(UserDto userDto) {
-        userMapper.insertUser(new User(userDto.getNum(),userDto.getName(),userDto.getId(),userDto.getPw()));
+        userMapper.insertUser(new User(userDto.getName(),userDto.getId(),userDto.getPw()));
     }
 
     public void deleteUser(UserDto userDto) {
-        userMapper.deleteUser(new User(userDto.getNum(), userDto.getName(),userDto.getId(),userDto.getPw()));
+        userMapper.deleteUser(new User(userDto.getName(),userDto.getId(),userDto.getPw()));
     }
 
-    public List<User> findUsers() {
-        return userMapper.findById();
+    public List<User> findAllUsers() {
+        return userMapper.findByAll();
     }
 
     public void updateUser(UserDto userDto) {
-        userMapper.updateUser(new User(userDto.getNum(), userDto.getName(),userDto.getId(),userDto.getPw()));
+        User user = new User(userDto.getId(),userDto.getPw());
+        userMapper.updateUser(user);
     }
+
+
 }

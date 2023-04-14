@@ -12,9 +12,13 @@
         delete from USER where id = #{id}
     </delete>
 
-    <select id="findById" resultType="com.project.onlineBookStore.domain.user.entity.User">
+    <select id="findByAll" resultType="com.project.onlineBookStore.domain.user.entity.User">
         select name,id
         from user
+    </select>
+
+    <select id="findById" resultType="com.project.onlineBookStore.domain.user.entity.User">
+        select
     </select>
     <update id = "updateUser">
         update user

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor; //접근 제한 -> 기본 생성자의 무분�
 @Data
 @NoArgsConstructor
 public class UserDto {
-    private  int num;
     private String name;
     private String id;
     private String pw;
