@@ -18,6 +18,13 @@
         <button type="submit">삭제</button>
     </form>
 
+    <form th:action="@{/books/updateBook}" th:object="${book}" method="post">
+        책번호<input type="text" name="bookId">
+        제목<input type="text" name="title">
+        가격<input type="text" name="price">
+        <button type="submit">수정</button>
+    </form>
+
 
 </div><!--container -->
 <button type="button" onclick="location.href='index'">뒤로가기</button>

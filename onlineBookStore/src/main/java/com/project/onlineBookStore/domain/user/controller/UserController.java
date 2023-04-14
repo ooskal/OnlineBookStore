@@ -1,6 +1,8 @@
 package com.project.onlineBookStore.domain.user.controller;
 
+import com.project.onlineBookStore.domain.book.entity.Book;
 import com.project.onlineBookStore.domain.user.dto.UserDto;
+import com.project.onlineBookStore.domain.user.entity.User;
 import com.project.onlineBookStore.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -43,4 +47,29 @@ public class UserController {
         userService.deleteUser(userDto);
         return "deleteUser";
     }
+
+    @GetMapping("/selectUser")
+    public String list(Model model) {
+        List<User> users = userService.findUsers();
+
+
+        model.addAttribute("users", users);
+        log.info("Users: " + users.toString());
+
+        return "SelectUser";
+    }
+
+    @GetMapping("/updateUser")
+    public String getUpdateUser(Model model) {
+        model.addAttribute("user", new UserDto());
+        return "updateUser";
+    }
+
+    @PostMapping("/updateUser")
+    public String postUpdateUser(UserDto userDto) {
+        log.info("UserDto: " + userDto.toString());
+        userService.updateUser(userDto);
+        return "updateUser";
+    }
+
 }

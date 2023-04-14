@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Setter
 
 public class Book {
+    private int bookId; // 식별번호
 
     private String title; // 책 제목
     private int price;  // 책 가격

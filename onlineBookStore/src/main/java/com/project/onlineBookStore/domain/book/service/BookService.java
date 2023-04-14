@@ -18,16 +18,22 @@ public class BookService  {
 
 
     public void addBook(BookDto bookDto) {
-        bookMapper.insertBook(new Book(bookDto.getTitle(), bookDto.getPrice()));
+        bookMapper.insertBook(new Book(bookDto.getBookId(),bookDto.getTitle(), bookDto.getPrice()));
     }
 
     public void deleteBook(BookDto bookDto) {
-        bookMapper.deleteBook(new Book(bookDto.getTitle(), bookDto.getPrice()));
+        bookMapper.deleteBook(new Book(bookDto.getBookId(), bookDto.getTitle(), bookDto.getPrice()));
+    }
+
+    public void updateBook(BookDto bookDto) {
+        bookMapper.updateBook(new Book(bookDto.getBookId(), bookDto.getTitle(), bookDto.getPrice()));
     }
 
     public List<Book> findBooks() {
         return bookMapper.findById();
     }
+
+
 
 
 }

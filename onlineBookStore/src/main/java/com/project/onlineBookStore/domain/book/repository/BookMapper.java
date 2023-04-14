@@ -12,6 +12,7 @@ public interface BookMapper {
     public List<Book> findById();
     public void insertBook(Book book);
     public void deleteBook(Book book);
+    public void updateBook(Book book);
 
 
 

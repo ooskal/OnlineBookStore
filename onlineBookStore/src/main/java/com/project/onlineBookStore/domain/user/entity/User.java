@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
+    private int num; // 유저 식별번호
     private String name; // 유저 이름
     private String id; // 유저 아이디
     private String pw; // 유저 비밀번호

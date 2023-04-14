@@ -2,9 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.onlineBookStore.domain.book.repository.BookMapper">
-<!--    <select id="selectAll" resultType="com.project.onlineBookStore.domain.books">-->
-<!--        SELECT * FROM my_table-->
-<!--    </select>-->
+
     <insert id="insertBook">
         INSERT INTO BOOK(title,price)
         VALUES(#{title},#{price})
@@ -16,8 +14,12 @@
     </delete>
 
     <select id="findById" resultType="com.project.onlineBookStore.domain.book.entity.Book">
-        select title,price
+        select bookId,title,price
         from book
-
     </select>
+    <update id = "updateBook">
+        update book
+        set title = #{title}, price = #{price}
+        where bookId = #{bookId}
+    </update>
 </mapper>

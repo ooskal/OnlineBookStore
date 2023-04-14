@@ -19,11 +19,7 @@ import java.util.List;
 @Slf4j
 public class BookController {
 
-
-
     private final BookService bookService;
-    private BookMapper bookMapper;
-
 
 
     @GetMapping("/insertBook")
@@ -52,10 +48,22 @@ public class BookController {
         return "insertBook";
     }
 
+    @GetMapping("/updateBook")
+    public String getUpdateBook(Model model) {
+        model.addAttribute("book", new Book());
+        return "insertBook";
+    }
+
+    @PostMapping("/updateBook")
+    public String postUpdateBook(BookDto bookDto) {
+        log.info("BookDTO : " + bookDto.toString()); // 책 수정
+        bookService.updateBook(bookDto);;
+        return "insertBook";
+    }
+
     @GetMapping("/selectBook")
     public String list(Model model) {
         List<Book> books = bookService.findBooks();
-
 
         model.addAttribute("books", books);
         log.info("Book: " + books.toString());

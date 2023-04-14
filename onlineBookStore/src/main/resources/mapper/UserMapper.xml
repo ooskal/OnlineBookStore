@@ -4,11 +4,21 @@
 <mapper namespace="com.project.onlineBookStore.domain.user.repository.UserMapper">
 
     <insert id="insertUser">
-
-        VALUES(#{name},#{id},#{pw})
+        INSERT INTO USER(name,id,pw)
+        VALUES (#{name},#{id},#{pw})
     </insert>
 
     <delete id="deleteUser">
         delete from USER where id = #{id}
     </delete>
+
+    <select id="findById" resultType="com.project.onlineBookStore.domain.user.entity.User">
+        select name,id
+        from user
+    </select>
+    <update id = "updateUser">
+        update user
+        set pw = #{pw}
+        where id = #{id}
+    </update>
 </mapper>
