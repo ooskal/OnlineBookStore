@@ -8,6 +8,7 @@
 
 <h1>회원 전체 조회</h1>
 <table> <tr th:each="users : ${users}">
+    <td th:text="${users.num}">
     <td th:text="${users.name}">
     <td th:text="${users.id}">
 </table>

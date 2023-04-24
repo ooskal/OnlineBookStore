@@ -13,14 +13,17 @@
     </delete>
 
     <select id="findByAll" resultType="com.project.onlineBookStore.domain.user.entity.User">
-        select name,id
+        select *
         from user
     </select>
 
-    <select id="findById" resultType="com.project.onlineBookStore.domain.user.entity.User">
-        select
+    <select id="findByUserId" resultType="com.project.onlineBookStore.domain.user.entity.User">
+        select *
+        from user
+        where id = #{id}
     </select>
-    <update id = "updateUser">
+
+    <update id = "updateUsers">
         update user
         set pw = #{pw}
         where id = #{id}

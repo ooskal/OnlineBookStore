@@ -5,12 +5,17 @@
   <title>index</title>
 </head>
 <body>
+
 <h1>테스트 페이지</h1>
-<button type="button" onclick="location.href='books/insertBook'">책 관리</button>
-<button type="button" onclick="location.href='books/selectBook'">책 조회</button>
-<button type="button" onclick="location.href='users/insertUser'">회원 가입</button>
-<button type="button" onclick="location.href='users/deleteUser'">회원 탈퇴</button>
-<button type="button" onclick="location.href='users/updateUser'">회원 비밀번호 수정</button>
+<a href='/books/insertBook'>책 관리</a>
+<a href='/books/selectBook'>책 조회</a>
+<a href='/users/insertUser'>회원 가입</a>
+<a href='/users/selectUser'>회원 조회</a>
+<a href='/users/deleteUser'>회원 탈퇴</a>
+<a href="/users/updateUser">비밀번호 변경</a>
+<a href="/users/login">로그인</a>
+session 값 확인 : <p th:text = "${session.loginId}"></p>
+<a href="/users/logout">로그아웃</a>
 
 </body>
 </html>
