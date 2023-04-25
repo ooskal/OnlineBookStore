@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 
-    <form th:action="@{/books/insertBook}" th:object="${book}" method="post">
+    <form th:action="@{/books/addBook}" th:object="${book}" method="post">
         제목<input type="text" name="title">
         가격<input type="text" name="price">
         <button type="submit">등록</button>

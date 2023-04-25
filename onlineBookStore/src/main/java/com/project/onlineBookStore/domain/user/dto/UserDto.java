@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor; //접근 제한 -> 기본 생성자의 무분�
 @Data
 @NoArgsConstructor
 public class UserDto {
-    private int userNum;
+    private int num;
     private String name;
     private String id;
     private String pw;
+    private String role;
 
     public User toEntity() {
         User user = new User();
@@ -19,11 +20,14 @@ public class UserDto {
         return user;
     }
 
+    //엔티티에서 userDto 로 변환해서 가져오는거
     public static UserDto toUserDto(User user) {
         UserDto userDto = new UserDto();
+        userDto.setNum(user.getNum());
         userDto.setId(user.getId());
         userDto.setPw(user.getPw());
         userDto.setName(user.getName());
+        userDto.setRole(user.getRole());
         return userDto;
     }
 }

@@ -1,6 +1,5 @@
 package com.project.onlineBookStore.domain.user.controller;
 
-import com.project.onlineBookStore.domain.book.entity.Book;
 import com.project.onlineBookStore.domain.user.dto.UserDto;
 import com.project.onlineBookStore.domain.user.entity.User;
 import com.project.onlineBookStore.domain.user.service.UserService;
@@ -24,86 +23,66 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/insertUser")
+    @GetMapping("/signUpUser")
     public String getInsertUser(Model model) {
         model.addAttribute("user", new UserDto());
-        return "insertUser";
+        return "user/signUpUser";
     }
-
-    @PostMapping("/insertUser")
+    @PostMapping("/signUpUser")
     public String postInsertUser(UserDto userDto) {
         log.info("UserDto: " + userDto.toString());
         userService.addUser(userDto);
-        return "insertUser";
+        return "user/signUpUser";
     }
-
     @GetMapping("/deleteUser")
     public String getDeleteUser(Model model) {
         model.addAttribute("user", new UserDto());
-        return "deleteUser";
+        return "user/deleteUser";
     }
-
     @PostMapping("/deleteUser")
     public String postDeleteUser(UserDto userDto) {
         log.info("UserDto: " + userDto.toString());
         userService.deleteUser(userDto);
-        return "deleteUser";
+        return "user/deleteUser";
     }
-
-    @GetMapping("/selectUser")
-    public String list(Model model) {
-        List<User> users = userService.findAllUsers();
-
-
-        model.addAttribute("users", users);
-        log.info("Users: " + users.toString());
-
-        return "SelectUser";
-    }
-
     @GetMapping("/updateUser")
     public String getUpdateUser(HttpSession session, Model model) {
         String myId = (String) session.getAttribute("loginId"); // 오브젝트가 더 커서 강제 형변환
         UserDto userDto = userService.updateUser(myId);
         model.addAttribute("updateUser", userDto);
 
-        return "updateUser";
+        return "user/updateUser";
     }
-
     @PostMapping("/updateUser")
         public String update(@ModelAttribute UserDto userDto) {
             userService.update(userDto);
             log.info("User pw: " + userDto.toString());
+
             return "redirect:/index" ;
-
        }
-
-
-
     @GetMapping("/login")
     public String getLogin() {
+
         return "login";
     }
-
     @PostMapping("/login")
     public String login(@ModelAttribute UserDto userDto,HttpSession session) {
         UserDto loginResult = userService.login(userDto);
         if(loginResult != null) { // 로그인 성공
-            session.setAttribute("loginId", loginResult.getId());
+            session.setAttribute("member", loginResult);
             log.info("로그인: " + userDto.toString());
+
             return "index";
         } else { //로그인 실패
             log.info("로그인: " + userDto.toString());
+
             return "login";
         }
-
     }
-
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 무효화
+
         return "index";
     }
-
-
 }

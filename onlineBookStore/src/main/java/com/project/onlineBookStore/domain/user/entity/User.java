@@ -22,6 +22,7 @@ public class User {
     private String name; // 유저 이름
     private String id; // 유저 아이디
     private String pw; // 유저 비밀번호
+    private String role; // 유저 권한
 
     public User(){
     }
@@ -47,7 +48,7 @@ public class User {
 
     public static User toUpdateUserEntity(UserDto userDto){
         User user = new User();
-        user.setNum(userDto.getUserNum());
+        user.setNum(userDto.getNum());
         user.setId(userDto.getId());
         user.setName(userDto.getName());
         user.setPw(userDto.getPw());
